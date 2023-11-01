@@ -19,4 +19,14 @@ const sendMail = async (req, resp) => {
         return resp.status(404).json(`Getting error in send Email Try after sometime`)
     }
 }
-module.exports = sendMail
+const Checksms = async (req, resp) => {
+    const { name, email, message } = req.body
+    try {
+        const UserMessage = await EmailModel.find({
+        })
+            return resp.status(201).json({ users:UserMessage })
+    } catch (error) {
+        return resp.status(404).json(`Getting error in send Email Try after sometime`)
+    }
+}
+module.exports = {sendMail,Checksms}

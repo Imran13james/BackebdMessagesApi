@@ -2,12 +2,12 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 PORT = process.env.PORT || 5000;
-const cors = require("cors");
+
 const router = require('./Router/Router');
 const DataBase = require("./Configration/Configration")
-
+const cors = require("cors");
 app.use(express.json())
-app.use(cors())
+
 
 async function Db() {
   DataBase()
@@ -19,6 +19,7 @@ async function Db() {
 }
 Db()
 app.use("/api", router)
+app.use(cors())
 async function Server() {
   try {
     await app.listen(PORT, () => {
