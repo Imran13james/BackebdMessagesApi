@@ -1,0 +1,6 @@
+const express = require("express")
+const sendMail = require("../Contrllers/Controllers")
+const router= express.Router()
+
+router.post("/mail",sendMail)
+module.exports = router
